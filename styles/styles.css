@@ -1,0 +1,5 @@
+@import "normalize.css";
+@import "globals.css";
+@import "blocks/header.css";
+@import "blocks/footer.css";
+@import "blocks/main.css";
