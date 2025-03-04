@@ -15,5 +15,13 @@ a {
 
 th,
 td {
-    border: 1px solid black;
+    border: 3px solid rgba(255, 10, 10, 0.5);
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #ffffff;
 }
