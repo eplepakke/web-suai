@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Сценарии</title>
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+  <link rel="stylesheet" href="../styles/styles.css">
+
+  <script>
+      // 1) Вызов всплывающего окна с ФИО и группой автора сайта
+      document.addEventListener('keydown', (event) => {
+          if (event.key === 'F1') {
+              alert("Автор сайта:\nФИО: Матвеев Андрей Владимирович\nГруппа: 4232");
+          }
+      });
+      // 2) Часы, которые показывают время сразу после загрузки страницы
+      window.addEventListener("load", () => {
+          const now = new Date();
+          const hours = String(now.getHours()).padStart(2, '0');
+          const minutes = String(now.getMinutes()).padStart(2, '0');
+          const seconds = String(now.getSeconds()).padStart(2, '0');
+          const timeString = `${hours}:${minutes}:${seconds}`;
+
+          const clockElement = document.getElementsByName('clock')[0];
+          clockElement.textContent = timeString;
+      });
+  </script>
+</head>
+
+<body>
+<header class="header">
+  <div class="header__inner container">
+    <div class="header__logo-title">
+      <img class="header__logo" src="../images/header.png" alt="Шапка сайта">
+      <h1 class="header__title">Сценарии</h1>
+    </div>
+    <nav class="header__menu">
+      <ul class="header__menu-list">
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../index.html">Главная</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../pages/consoles.html">Консоли</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../pages/sources.html">Источники</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../pages/scenarios.html">Сценарии</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<hr>
+<main class="main">
+  <section class="section container">
+    <article class="section__body">
+      <h2 class="section__title">Время на момент загрузки страницы:</h2>
+      <div name="clock" style="font-size: 24px; font-weight: bold;"></div>
+      <p class="section__text">При нажатии на F1 будет показана информация об авторе сайта.</p>
+    </article>
+  </section>
+</main>
+<footer class="footer">
+  <address class="footer__address">
+    <a href="mailto:walawkizi@gmail.com">walawkizi@gmail.com</a>
+    <p> © Nintendo. Все права защищены.</p>
+  </address>
+</footer>
+</body>
+
+</html>
