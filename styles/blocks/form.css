@@ -1,0 +1,61 @@
+.nintendo-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.nintendo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nintendo-label {
+    font-weight: bold;
+}
+
+.nintendo-input, .nintendo-select, .nintendo-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.nintendo-checkbox, .nintendo-radio {
+    margin-right: 10px;
+}
+
+.nintendo-fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nintendo-button {
+    background-color: #e60012;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nintendo-button:hover {
+    background-color: #b2000f;
+}
+
+.nintendo-summary {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff4f4;
+    border: 2px solid #e60012;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.nintendo-summary strong {
+    color: #e60012;
+}

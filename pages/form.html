@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Анкета</title>
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <script>
+      // Функция для проверки формы перед отправкой
+      function validateForm(event) {
+          // Получаем все элементы формы
+          let surname = document.getElementById("surname").value;
+          let name = document.getElementById("name").value;
+          let patronymic = document.getElementById("patronymic").value;
+          let email = document.getElementById("email").value;
+          let consoleSelect = document.getElementById("console").value;
+          let discoveryRadio = document.querySelector('input[name="discovery"]:checked');
+
+          // Проверка обязательных полей
+          if (!surname || !name || !email || !discoveryRadio) {
+              alert("Пожалуйста, заполните все обязательные поля.");
+              event.preventDefault();
+              return false; // Останавливаем отправку формы
+          }
+
+          // Проверка на только буквы в фамилии, имени и отчествах
+          let nameRegex = /^[А-Яа-яЁё]+$/;
+          if (!nameRegex.test(surname) || !nameRegex.test(name) || (patronymic && !nameRegex.test(patronymic))) {
+              alert("Фамилия, имя и отчество должны содержать только буквы.");
+              event.preventDefault();
+              return false; // Останавливаем отправку формы
+          }
+
+          // Проверка электронной почты на наличие символа '@'
+          if (!email.includes("@")) {
+              alert("Пожалуйста, введите правильный адрес электронной почты.");
+              event.preventDefault();
+              return false; // Останавливаем отправку формы
+          }
+
+          // Добавить дополнительные проверки по желанию (например, проверка длины имени)
+          if (surname.length < 2 || name.length < 2) {
+              alert("Фамилия и имя должны быть не короче 2 символов.");
+              event.preventDefault();
+              return false; // Останавливаем отправку формы
+          }
+
+          // Устанавливаем время отправки
+          setSubmissionTime();
+
+          return true; // Форма прошла проверку, можно отправить
+      }
+      // Функция для установки времени отправки
+      function setSubmissionTime() {
+          document.getElementById("submission_time").value = new Date().toISOString(); // Устанавливаем его в скрытое поле
+      }
+  </script>
+</head>
+
+<body>
+<header class="header">
+  <div class="header__inner container">
+    <div class="header__logo-title">
+      <img class="header__logo" src="../images/header.png" alt="Шапка сайта">
+      <h1 class="header__title">Анкета</h1>
+    </div>
+    <nav class="header__menu">
+      <ul class="header__menu-list">
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../index.html">Главная</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../pages/consoles.html">Консоли</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../pages/sources.html">Источники</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../pages/scenarios.html">Сценарии</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../pages/form.html">Анкета</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<hr>
+<main class="main">
+  <section class="nintendo-section">
+    <h2 class="section__title">Анкета любителя Nintendo</h2>
+    <form action="/cgi-bin/form_out.py" method="post" class="nintendo-form" onsubmit="validateForm(event)">
+
+      <!-- Скрытое поле для времени отправки -->
+      <input type="hidden" id="submission_time" name="submission_time">
+
+      <label class="nintendo-label" for="surname">Фамилия:</label>
+      <input class="nintendo-input" type="text" id="surname" name="surname" required>
+
+      <label class="nintendo-label" for="name">Имя:</label>
+      <input class="nintendo-input" type="text" id="name" name="name" required>
+
+      <label class="nintendo-label" for="patronymic">Отчество:</label>
+      <input class="nintendo-input" type="text" id="patronymic" name="patronymic">
+
+      <label class="nintendo-label" for="console">Любимая консоль Nintendo:</label>
+      <select class="nintendo-select" id="console" name="console">
+        <option value="nes">Nintendo Entertainment System (NES)</option>
+        <option value="snes">Super Nintendo (SNES)</option>
+        <option value="n64">Nintendo 64</option>
+        <option value="gamecube">GameCube</option>
+        <option value="wii">Nintendo Wii</option>
+        <option value="switch">Nintendo Switch</option>
+        <option value="other">Другое</option>
+      </select>
+
+      <fieldset class="nintendo-fieldset">
+        <legend>Любимые серии игр (можно выбрать несколько):</legend>
+        <label><input class="nintendo-checkbox" type="checkbox" name="games" value="mario"> Super Mario</label>
+        <label><input class="nintendo-checkbox" type="checkbox" name="games" value="zelda"> The Legend of Zelda</label>
+        <label><input class="nintendo-checkbox" type="checkbox" name="games" value="pokemon"> Pokémon</label>
+        <label><input class="nintendo-checkbox" type="checkbox" name="games" value="metroid"> Metroid</label>
+        <label><input class="nintendo-checkbox" type="checkbox" name="games" value="kirby"> Kirby</label>
+        <label><input class="nintendo-checkbox" type="checkbox" name="games" value="other"> Другое</label>
+      </fieldset>
+
+      <fieldset class="nintendo-fieldset">
+        <legend>Как вы узнали о Nintendo?</legend>
+        <label><input class="nintendo-radio" type="radio" name="discovery" value="childhood" checked> С детства</label>
+        <label><input class="nintendo-radio" type="radio" name="discovery" value="friends"> От друзей</label>
+        <label><input class="nintendo-radio" type="radio" name="discovery" value="internet"> В интернете</label>
+        <label><input class="nintendo-radio" type="radio" name="discovery" value="other"> Другое</label>
+      </fieldset>
+
+      <label class="nintendo-label" for="email">Электронная почта:</label>
+      <input class="nintendo-input" type="email" id="email" name="email" required>
+
+      <button class="nintendo-button" type="submit">Отправить</button>
+    </form>
+  </section>
+</main>
+<footer class="footer">
+  <address class="footer__address">
+    <a href="mailto:walawkizi@gmail.com">walawkizi@gmail.com</a>
+    <p> © Nintendo. Все права защищены.</p>
+  </address>
+</footer>
+</body>
+
+</html>

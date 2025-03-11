@@ -7,6 +7,113 @@
   <title>Консоли Nintendo</title>
   <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
   <link rel="stylesheet" href="../styles/styles.css">
+  <script>
+      window.onload = () => {
+          let scaleFactor = 1;
+          const scaleStep = 0.1;
+          let isH1Colored = false;
+          const color1 = 'blue';
+          const color2 = 'red';
+
+          // Изменение цвета элемента с именем h1
+          function toggleH1Color(color_1, color_2) {
+              const h1 = document.getElementsByName('h1')[0];
+              if (!h1) return;
+
+              if (h1) {
+                  h1.style.color = isH1Colored ? color_1 : color_2;
+                  isH1Colored = !isH1Colored;
+              }
+          }
+
+          // Изменение размера элемента с именем imgSNES
+          function resizeImage(key) {
+              const imgSNES = document.getElementsByName('imgSNES')[0];
+              if (!imgSNES) return;
+
+              if (key === 'F3') {
+                  scaleFactor = Math.max(0.5, scaleFactor - scaleStep); // минимум 0.5
+              } else if (key === 'F4') {
+                  scaleFactor = Math.min(3, scaleFactor + scaleStep); // максимум 3
+              }
+
+              imgSNES.style.transform = `scale(${scaleFactor})`;
+          }
+
+          // Добавить и удалить элемент списка
+
+          function addListItem() {
+              const ol = document.getElementsByName('games')[0];
+              const newItem = document.createElement('li');
+              newItem.textContent = `Новый элемент ${ol.children.length + 1}`;
+              ol.appendChild(newItem);
+          }
+
+          function removeListItem() {
+              const ol = document.getElementsByName('games')[0];
+              if (ol.children.length > 0) {
+                  ol.removeChild(ol.lastChild);
+              }
+          }
+
+          // Функция для добавления строки в таблицу
+          function addTableRow(text) {
+              const tbody = document.getElementsByName('consoles_tb')[0];
+              const newRow = document.createElement('tr');
+              newRow.innerHTML = `
+              <td>${text}</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>
+                <button onclick="this.closest('tr').remove();">Удалить</button>
+              </td>
+            `;
+              tbody.appendChild(newRow);
+          }
+
+          // Создание формы для добавления строк в таблицу
+          const table = document.getElementsByName('console_table')[0];
+          const form = document.createElement('form');
+          form.innerHTML = `
+            <input type="text" id="newRowText" placeholder="Введите текст для новой строки">
+            <button type="submit">Добавить строку</button>
+          `;
+          table.parentNode.insertBefore(form, table.nextSibling);
+
+          form.addEventListener('submit', function (e) {
+              e.preventDefault();
+              const text = document.getElementsByTagName('input')[0].value;
+              if (text) {
+                  addTableRow(text);
+                  form.reset();
+              }
+          });
+
+
+          document.addEventListener('keydown', (event) => {
+              if (event.key === 'F3' || event.key === 'F4') {
+                  resizeImage(event.key);
+                  event.preventDefault();
+              }
+
+              if (event.key === 'F2') {
+                  toggleH1Color(color1, color2);
+                  event.preventDefault();
+              }
+
+              if (event.key === '+') {
+                  addListItem();
+                  event.preventDefault();
+              }
+
+              if (event.key === '_') {
+                  removeListItem();
+                  event.preventDefault();
+              }
+          });
+      }
+  </script>
   <style>
       blockquote.quote {
           display: flex;
@@ -42,7 +149,7 @@
   <div class="header__inner container">
     <div class="header__logo-title">
       <img class="header__logo" src="../images/header.png" alt="Шапка сайта">
-      <h1 class="header__title">Консоли Nintendo</h1>
+      <h1 class="header__title" name="h1">Консоли Nintendo</h1>
     </div>
     <nav class="header__menu">
       <ul class="header__menu-list">
@@ -54,6 +161,12 @@
         </li>
         <li class="header__menu-item">
           <a class="header__menu-link" href="../pages/sources.html">Источники</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../pages/scenarios.html">Сценарии</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../pages/form.html">Анкета</a>
         </li>
       </ul>
     </nav>
@@ -85,7 +198,8 @@
       <h3 class="section__title">Популярные консоли Nintendo с 1990-х</h3>
       <picture class="picture">
         <source srcset="../images/SNES.jpg" media="(max-width: 100px)"/>
-        <img src="../images/SNES.jpg" alt="SNES реклама" style="height: 30rem;"/>
+        <img src="../images/SNES.jpg" alt="SNES реклама" style="height: 30rem; transition: transform 0.2s ease;"
+             name="imgSNES"/>
       </picture>
       <ul class="list">
         <li><strong>Super Nintendo Entertainment System (SNES)</strong> - выпущена в 1990 году.
@@ -157,7 +271,7 @@
     <hr>
     <article class="section__body">
       <h3 class="section__title">Таблица характеристик</h3>
-      <table>
+      <table name="console_table">
         <caption>Сравнение характеристик консолей Nintendo с 1990-х годов по 2017 год</caption>
         <thead>
         <tr>
@@ -168,7 +282,7 @@
           <th>Особенности</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody name="consoles_tb">
         <tr>
           <td rowspan="2" id="gameboy_picture"><img src="../images/gameboy.jpg" alt="GameBoy pixel art"></td>
           <td>1989</td>
@@ -263,7 +377,7 @@
     <hr>
     <article class="section__body">
       <h3 class="section__title">Список популярных игр для консолей</h3>
-      <ol>
+      <ol name="games">
         <li>Super Nintendo Entertainment System
           <ol>
             <li>Super Mario World</li>

@@ -17,7 +17,7 @@
           }
       });
       // 2) Часы, которые показывают время сразу после загрузки страницы
-      window.addEventListener("load", () => {
+      document.addEventListener('DOMContentLoaded', () => {
           const now = new Date();
           const hours = String(now.getHours()).padStart(2, '0');
           const minutes = String(now.getMinutes()).padStart(2, '0');
@@ -50,6 +50,9 @@
         </li>
         <li class="header__menu-item">
           <a class="header__menu-link" href="../pages/scenarios.html">Сценарии</a>
+        </li>
+        <li class="header__menu-item">
+          <a class="header__menu-link" href="../pages/form.html">Анкета</a>
         </li>
       </ul>
     </nav>
