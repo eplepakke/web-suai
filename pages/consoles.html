@@ -113,6 +113,14 @@
               }
           });
       }
+      // Сценарии окна (перемещение и скроллинг)
+      window.addEventListener('scroll', function() {
+          console.log('Текущий скролл:', window.scrollY);
+      });
+
+      window.addEventListener('resize', function() {
+          console.log('Размер окна изменен:', window.innerWidth, 'x', window.innerHeight);
+      });
   </script>
   <style>
       blockquote.quote {
