@@ -52,6 +52,7 @@ echo <<<HTML
 <head>
     <meta charset="UTF-8">
     <title>Игры</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/styles.css">
     <style>
         table {
@@ -96,12 +97,13 @@ echo <<<HTML
     </div>
     <nav class="header__menu">
       <ul class="header__menu-list">
-        <li><a href="../index.html" class="header__menu-link">Главная</a></li>
-        <li><a href="../pages/consoles.html" class="header__menu-link">Консоли</a></li>
-        <li><a href="../pages/sources.html" class="header__menu-link">Источники</a></li>
-        <li><a href="../pages/scenarios.html" class="header__menu-link">Сценарии</a></li>
-        <li><a href="../pages/form.html" class="header__menu-link">Анкета</a></li>
-        <li><a href="games.php" class="header__menu-link">Игры</a></li>
+        <li class="header__menu-item"><a href="../index.html" class="header__menu-link">Главная</a></li>
+        <li class="header__menu-item"><a href="../pages/consoles.html" class="header__menu-link">Консоли</a></li>
+        <li class="header__menu-item"><a href="../pages/sources.html" class="header__menu-link">Источники</a></li>
+        <li class="header__menu-item"><a href="../pages/scenarios.html" class="header__menu-link">Сценарии</a></li>
+        <li class="header__menu-item"><a href="../pages/form.html" class="header__menu-link">Анкета</a></li>
+        <li class="header__menu-item"><a href="games.php" class="header__menu-link">Игры</a></li>
+        <li class="header__menu-item"><a href="../pages/ajax_database.php" class="header__menu-link">AJAX-доступ</a></li>
       </ul>
     </nav>
   </div>
