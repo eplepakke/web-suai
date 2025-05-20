@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<consoles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="consoles.xsd">
+    <console type="Handheld">
+        <name>Nintendo DS</name>
+        <release>2004</release>
+        <sales>154.02</sales>
+        <image>../images/ds.jpg</image>
+    </console>
+    <console type="Hybrid">
+        <name>Nintendo Switch</name>
+        <release>2017</release>
+        <sales>152.12</sales>
+        <image>../images/switch.jpg</image>
+    </console>
+    <console type="Handheld">
+        <name>Game Boy и Game Boy Color</name>
+        <release>1989</release>
+        <sales>118.69</sales>
+        <image>../images/gb.jpg</image>
+    </console>
+    <console type="Home">
+        <name>Wii</name>
+        <release>2006</release>
+        <sales>101.63</sales>
+        <image>../images/wii.jpg</image>
+    </console>
+    <console type="Handheld">
+        <name>Game Boy Advance</name>
+        <release>2001</release>
+        <sales>81.51</sales>
+        <image>../images/gba.jpg</image>
+    </console>
+    <console type="Handheld">
+        <name>Nintendo 3DS</name>
+        <release>2011</release>
+        <sales>75.94</sales>
+        <image>../images/3ds.jpg</image>
+    </console>
+    <console type="Home">
+        <name>NES / Famicom</name>
+        <release>1983</release>
+        <sales>61.91</sales>
+        <image>../images/nes.jpg</image>
+    </console>
+    <console type="Home">
+        <name>SNES / Super Famicom</name>
+        <release>1990</release>
+        <sales>49.1</sales>
+        <image>../images/supernes.jpg</image>
+    </console>
+    <console type="Home">
+        <name>Nintendo 64</name>
+        <release>1996</release>
+        <sales>32.93</sales>
+        <image>../images/n64.jpg</image>
+    </console>
+    <console type="Home">
+        <name>Nintendo GameCube</name>
+        <release>2001</release>
+        <sales>21.74</sales>
+        <image>../images/gamecube.jpg</image>
+    </console>
+    <console type="Home">
+        <name>Wii U</name>
+        <release>2012</release>
+        <sales>13.56</sales>
+        <image>../images/wiiu.jpg</image>
+    </console>
+    <console type="Hybrid">
+        <name>Nintendo Switch 2</name>
+        <release>2025</release>
+        <sales>0</sales>
+        <image>../images/switch2.jpg</image>
+    </console>
+</consoles>

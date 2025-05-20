@@ -104,6 +104,8 @@ echo <<<HTML
         <li class="header__menu-item"><a href="../pages/form.html" class="header__menu-link">Анкета</a></li>
         <li class="header__menu-item"><a href="games.php" class="header__menu-link">Игры</a></li>
         <li class="header__menu-item"><a href="../pages/ajax_database.php" class="header__menu-link">AJAX-доступ</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="../pages/sales.html">Продажи консолей</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="../pages/consoles_xml.html">Консоли (XML)</a></li>
       </ul>
     </nav>
   </div>

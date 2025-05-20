@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Просмотр данных о продажах</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+
+<body onload="displayResult('table')">
+
+<header class="header">
+  <div class="header__inner container">
+    <div class="header__logo-title">
+      <img class="header__logo" src="../images/header.png" alt="Шапка сайта">
+      <h1 class="header__title">Просмотр данных о продажах</h1>
+    </div>
+    <nav class="header__menu">
+      <ul class="header__menu-list">
+        <li class="header__menu-item"><a class="header__menu-link" href="../index.html">Главная</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="../pages/consoles.html">Консоли</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="../pages/sources.html">Источники</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="../pages/scenarios.html">Сценарии</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="../pages/form.html">Анкета</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="../pages/games.php">Игры</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="../pages/ajax_database.php">AJAX-доступ</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="../pages/sales.html">Продажи консолей</a></li>
+        <li class="header__menu-item"><a class="header__menu-link" href="../pages/consoles_xml.html">Консоли (XML)</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<hr>
+
+<main class="main">
+  <section class="section container">
+    <article class="section__body">
+      <h2 class="section__title">Продажи консолей Nintendo: XML + XSLT</h2>
+      <p>Выберите режим отображения:</p>
+      <button onclick="displayResult('table')">Показать таблицей</button>
+      <button onclick="displayResult('lines')">Показать построчно</button>
+
+      <div id="example" style="margin-top: 20px;"></div>
+    </article>
+  </section>
+</main>
+
+<footer class="footer">
+  <address class="footer__address">
+    <a href="mailto:walawkizi@gmail.com">walawkizi@gmail.com</a>
+    <p>© Nintendo. Все права защищены.</p>
+  </address>
+</footer>
+
+<script>
+    function loadXMLDoc(filename) {
+        let xhttp;
+        if (window.ActiveXObject) {
+            xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+        } else {
+            xhttp = new XMLHttpRequest();
+        }
+        xhttp.open("GET", filename, false);
+        try { xhttp.responseType = "msxml-document"; } catch (err) {}
+        xhttp.send("");
+        return xhttp.responseXML;
+    }
+
+    function displayResult(mode) {
+        const xml = loadXMLDoc("../pages/xml-xslt/consoles.xml");
+        let xsl;
+
+        if (mode === 'lines') {
+            xsl = loadXMLDoc("../pages/xml-xslt/lines.xsl");
+        } else {
+            xsl = loadXMLDoc("../pages/xml-xslt/table.xsl");
+        }
+
+        if (window.ActiveXObject || xml.transformNode) {
+            const transformed = xml.transformNode(xsl);
+            document.getElementById("example").innerHTML = transformed;
+        } else if (document.implementation && document.implementation.createDocument) {
+            const xsltProcessor = new XSLTProcessor();
+            xsltProcessor.importStylesheet(xsl);
+            const resultDocument = xsltProcessor.transformToFragment(xml, document);
+            const output = document.getElementById("example");
+            output.innerHTML = "";
+            output.appendChild(resultDocument);
+        }
+    }
+</script>
+
+</body>
+</html>

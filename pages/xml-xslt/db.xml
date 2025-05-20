@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DataSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="db.xsd">
+    <Console>
+        <id>1</id>
+        <name>Nintendo Entertainment System (NES)</name>
+        <release_year>1983</release_year>
+        <generation>3-е</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>2</id>
+        <name>Super Nintendo Entertainment System (SNES)</name>
+        <release_year>1990</release_year>
+        <generation>4-е</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>3</id>
+        <name>Nintendo 64</name>
+        <release_year>1996</release_year>
+        <generation>5-е</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>4</id>
+        <name>GameCube</name>
+        <release_year>2001</release_year>
+        <generation>6-е</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>5</id>
+        <name>Wii</name>
+        <release_year>2006</release_year>
+        <generation>7-е</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>6</id>
+        <name>Wii U</name>
+        <release_year>2012</release_year>
+        <generation>8-е</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>7</id>
+        <name>Nintendo Switch</name>
+        <release_year>2017</release_year>
+        <generation>9-е</generation>
+        <discontinued>false</discontinued>
+    </Console>
+    <Console>
+        <id>8</id>
+        <name>Game Boy</name>
+        <release_year>1989</release_year>
+        <generation>4-е (портативная)</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>9</id>
+        <name>Game Boy Color</name>
+        <release_year>1998</release_year>
+        <generation>5-е (портативная)</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>10</id>
+        <name>Game Boy Advance</name>
+        <release_year>2001</release_year>
+        <generation>6-е (портативная)</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>11</id>
+        <name>Nintendo DS</name>
+        <release_year>2004</release_year>
+        <generation>7-е (портативная)</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>12</id>
+        <name>Nintendo 3DS</name>
+        <release_year>2011</release_year>
+        <generation>8-е (портативная)</generation>
+        <discontinued>true</discontinued>
+    </Console>
+    <Console>
+        <id>13</id>
+        <name>Nintendo Switch Lite</name>
+        <release_year>2019</release_year>
+        <generation>9-е (портативная)</generation>
+        <discontinued>false</discontinued>
+    </Console>
+
+    <!-- Игры, связанные с консолями -->
+    <Game>
+        <id>1</id>
+        <title>Super Mario Bros.</title>
+        <genre>Platformer</genre>
+        <release_date>1985-09-13</release_date>
+        <developer>Nintendo</developer>
+        <console_id>1</console_id>
+    </Game>
+    <Game>
+        <id>2</id>
+        <title>The Legend of Zelda: A Link to the Past</title>
+        <genre>Action-adventure</genre>
+        <release_date>1991-11-21</release_date>
+        <developer>Nintendo</developer>
+        <console_id>2</console_id>
+    </Game>
+    <Game>
+        <id>3</id>
+        <title>Super Mario 64</title>
+        <genre>Platformer</genre>
+        <release_date>1996-06-23</release_date>
+        <developer>Nintendo</developer>
+        <console_id>3</console_id>
+    </Game>
+    <Game>
+        <id>4</id>
+        <title>Metroid Prime</title>
+        <genre>Action-adventure</genre>
+        <release_date>2002-11-17</release_date>
+        <developer>Retro Studios</developer>
+        <console_id>4</console_id>
+    </Game>
+    <Game>
+        <id>5</id>
+        <title>Wii Sports</title>
+        <genre>Sports</genre>
+        <release_date>2006-11-19</release_date>
+        <developer>Nintendo</developer>
+        <console_id>5</console_id>
+    </Game>
+    <Game>
+        <id>6</id>
+        <title>Super Smash Bros. for Wii U</title>
+        <genre>Fighting</genre>
+        <release_date>2014-11-21</release_date>
+        <developer>Nintendo</developer>
+        <console_id>6</console_id>
+    </Game>
+    <Game>
+        <id>7</id>
+        <title>The Legend of Zelda: Breath of the Wild</title>
+        <genre>Action-adventure</genre>
+        <release_date>2017-03-03</release_date>
+        <developer>Nintendo</developer>
+        <console_id>7</console_id>
+    </Game>
+    <Game>
+        <id>8</id>
+        <title>Tetris</title>
+        <genre>Puzzle</genre>
+        <release_date>1989-06-14</release_date>
+        <developer>Nintendo</developer>
+        <console_id>8</console_id>
+    </Game>
+    <Game>
+        <id>9</id>
+        <title>Pokémon Crystal</title>
+        <genre>RPG</genre>
+        <release_date>2000-12-14</release_date>
+        <developer>Game Freak</developer>
+        <console_id>9</console_id>
+    </Game>
+    <Game>
+        <id>10</id>
+        <title>Metroid Fusion</title>
+        <genre>Action</genre>
+        <release_date>2002-11-17</release_date>
+        <developer>Nintendo</developer>
+        <console_id>10</console_id>
+    </Game>
+    <Game>
+        <id>11</id>
+        <title>New Super Mario Bros.</title>
+        <genre>Platformer</genre>
+        <release_date>2006-05-15</release_date>
+        <developer>Nintendo</developer>
+        <console_id>11</console_id>
+    </Game>
+    <Game>
+        <id>12</id>
+        <title>Animal Crossing: New Leaf</title>
+        <genre>Simulation</genre>
+        <release_date>2012-11-08</release_date>
+        <developer>Nintendo</developer>
+        <console_id>12</console_id>
+    </Game>
+    <Game>
+        <id>13</id>
+        <title>Animal Crossing: New Horizons</title>
+        <genre>Simulation</genre>
+        <release_date>2020-03-20</release_date>
+        <developer>Nintendo</developer>
+        <console_id>13</console_id>
+    </Game>
+    <Game>
+        <id>14</id>
+        <title>Mario Kart 8 Deluxe</title>
+        <genre>Racing</genre>
+        <release_date>2017-04-28</release_date>
+        <developer>Nintendo</developer>
+        <console_id>7</console_id>
+    </Game>
+    <Game>
+        <id>15</id>
+        <title>Pokémon Sword</title>
+        <genre>RPG</genre>
+        <release_date>2019-11-15</release_date>
+        <developer>Game Freak</developer>
+        <console_id>13</console_id>
+    </Game>
+</DataSet>
